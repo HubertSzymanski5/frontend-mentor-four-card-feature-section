@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+:root {
+    --primary-red: hsl(0, 78%, 62%);
+    --primary-cyan: hsl(180, 62%, 55%);
+    --primary-orange: hsl(34, 97%, 64%);
+    --primary-blue: hsl(212, 86%, 64%);
+
+    --neutral-dark-blue: hsl(234, 12%, 34%);
+    --neutral-grayish-blue: hsl(229, 6%, 66%);
+    --neutral-light-gray: hsl(0, 0%, 98%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    align-items: center;
+    background-color: var(--neutral-light-gray);
+    color: var(--neutral-grayish-blue);
+    display: flex;
+    flex-flow: column;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    height: 100vh;
+    width: 100vw;
+    min-width: 330px;
+}
+
+h1 {
+    color: var(--neutral-dark-blue);
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+h2 {
+    color: var(--neutral-dark-blue);
+    font-size: 30px;
+    font-weight: bolder;
+    position: relative;
+}
+
+h3 {
+    color: var(--neutral-dark-blue);
+}
+
+header {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    padding-top: 92px;
+    text-align: center;
+}
+
+header p {
+    padding-top: 18px;
+    width: 60%;
+}
+
+main {
+    display: grid;
+    justify-content: center;
+    grid-gap: 30px;
+    grid-auto-rows: auto;
+    grid-template-areas:
+        'g1 two g2'
+        'one two four'
+        'one three four'
+        'g3 three g4';
+    padding: 65px 0 65px;
+    width: 75%;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--neutral-grayish-blue) 0 10px 20px;
+    max-height: 178px;
+    min-height: 156px;
+    height: 19vh;
+    overflow: hidden;
+    padding: 40px 32px 32px;
+    position: relative;
+    min-width: 240px;
+    max-width: 286px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(105%);
+}
+
+.card div.img {
+    align-items: end;
+    display: flex;
+    justify-content: end;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+img {
+    transform: translate(-32px, -32px);
+}
+
+.card__supervisor {
+    grid-area: one;
+}
+
+.card__team-builder {
+    grid-area: two;
+}
+
+.card__karma {
+    grid-area: three;
+}
+
+.card__calculator {
+    grid-area: four;
+}
+
+.card::before {
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.card__supervisor::before {
+    background-color: var(--primary-cyan);
+}
+
+.card__supervisor:hover {
+    box-shadow: blue;
+}
+
+.card__team-builder::before {
+    background-color: var(--primary-red);
+}
+
+.card__karma::before {
+    background-color: var(--primary-orange);
+}
+
+.card__calculator::before {
+    background-color: var(--primary-blue);
+}
+
+@media (max-width: 1100px) {
+    main {
+        grid-template-areas:
+            "g1 two two g2"
+            "one one three three"
+            "g3 four four g4";
+    }
+}
+
+@media (max-width: 800px) {
+    main {
+        display: grid;
+        grid-gap: 30px;
+        grid-auto-rows: auto;
+        grid-template-areas:
+            "one"
+            "two"
+            "three"
+            "four";
+    }
+
+    header p {
+        width: 80%;
+    }
+}
+
+@media (max-width: 450px) {
+
+    h1, h2 {
+        font-size: 25px;
+    }
+}
